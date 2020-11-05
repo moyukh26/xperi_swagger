@@ -1,0 +1,16 @@
+{
+    "version_id": "0fe8261d-2eb0-4679-850b-6155c4864105",
+    "created_at": "11/05/2020 17:39:22",
+    "is_encrypted": false,
+    "content-type": "application/octet-stream",
+    "content_length": 92111,
+    "last_modified": "11/05/2020 12:09:20",
+    "URL": "",
+    "is_deleted": false,
+    "collection_id": [
+        "test"
+    ],
+    "name": "kushal",
+    "description": "This is an asset",
+    "created_by_user_id": "moyukh"
+}

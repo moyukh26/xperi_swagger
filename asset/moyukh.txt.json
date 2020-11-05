@@ -1,0 +1,16 @@
+{
+    "version_id": "05bf1e6e-9f5c-453b-8542-ae7a1cdcf165",
+    "created_at": "11/05/2020 16:34:10",
+    "is_encrypted": false,
+    "Content-Type": "application/octet-stream",
+    "Content_Length": 268,
+    "Last_Modified": "11/05/2020 11:04:06",
+    "URL": "",
+    "is_Deleted": false,
+    "Collection_Id": [
+        "test"
+    ],
+    "Name": "moyukh.txt",
+    "Description": "This is an asset",
+    "Created_By_User_Id": "moyukh"
+}

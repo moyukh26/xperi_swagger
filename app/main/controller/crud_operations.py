@@ -3,6 +3,7 @@ from flask_restplus import Resource
 from flask_cors import cross_origin
 
 from ..service.minio_operation_service import MinioOperation
+from ..service.create_assets_service import CreateAsset
 from ..util.dto import CreateDto
 from ..util.dto import ReadDto
 from ..util.dto import UpdateDto
@@ -21,7 +22,7 @@ delete_api = DeleteDto.api
 _delete_model = DeleteDto.delete_model
 
 
-@api.route('/create/<type>,<identifier>,<applicationType>', endpoint='/create')
+@api.route('/create_asset/<name>,<source>,<destination>', endpoint='/create_asset')
 class Create(Resource):
     # @api.doc('create a new Resource')
     # def get(self, bucket_name):
@@ -42,17 +43,17 @@ class Create(Resource):
 
     # @api.response(201, 'Metadata successfully created.')
     @api.response(201, 'Created successfully.')
-    @api.doc('Create a new Resource')
-    def post(self, type, identifier, applicationType):
-        """Create a New Resource"""
-        response_obj = {}
-        if applicationType.lower() == "minio":
-            minio_object = MinioOperation()
-            if type.lower() == "bucket":
-                response_obj = minio_object.create(identifier)
-
-        response = {"bucket_name": response_obj["bucket_name"], "message": "Created successfully", "status_code": 200}
-        return jsonify(response)
+    @api.doc('Create a new Asset')
+    def post(self, name, source, destination):
+        """Create a New Asset"""
+        asset_object = CreateAsset(
+                            name=name,
+                            source_path=source,
+                            destination=destination
+                        )
+        asset_object.upload_assets()
+        response_obj = asset_object.create_asset_metadata()
+        return response_obj
 
 
 @read_api.route('/read/<type>,<identifier>,<applicationType>', endpoint='/read')

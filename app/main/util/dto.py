@@ -20,11 +20,11 @@ class MetadataDto:
 #     })
 
 class CreateDto:
-    api = Namespace('CREATE', description='CRUD Operation - CREATE')
+    api = Namespace('Create_Asset', description='CRUD Operation - CREATE')
     create_model = api.model('CREATE', {
-        'type': fields.String(required=True, description='Resource Type'),
-        'identifier': fields.String(required=True, description='Resource name'),
-        'applicationType': fields.String(required=True, description='Application name')
+        'name': fields.String(required=True, description='Asset name'),
+        'source': fields.String(required=True, description='Source File Path'),
+        'destination': fields.String(required=True, description='Collection Name')
     })
 
 
